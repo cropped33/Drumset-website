@@ -1,3 +1,18 @@
+//for keypress in keyboard
+document.addEventListener("keypress", function (event) {
+    hear((event.key).toUpperCase());
+    animation((event.key).toUpperCase());
+
+});
+
+//for clicks on screen
+for (var i = 0; i < document.querySelectorAll(".dm").length; i++) {
+    document.querySelectorAll(".dm")[i].addEventListener("click", function () {
+        hear(this.innerText);
+        animation(this.innerText);
+    });
+}
+
 //function to play sounds.
 function hear(keyword) {
 
@@ -36,16 +51,10 @@ function hear(keyword) {
     }
 }
 
+function animation(keypressed) {
+    document.querySelector("." + keypressed).classList.add("pressed");
 
-//for keypress in keyboard
-document.addEventListener("keypress", function (event) {
-    hear((event.key).toUpperCase());
-});
-
-//for clicks on screen
-for (var i = 0; i < document.querySelectorAll(".dm").length; i++) {
-    document.querySelectorAll(".dm")[i].addEventListener("click", function () {
-        hear(this.innerText);
-    });
+    setTimeout(function () {
+        document.querySelector("." + keypressed).classList.remove("pressed");
+    }, 100);
 }
-

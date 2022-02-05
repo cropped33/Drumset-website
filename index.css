@@ -33,7 +33,9 @@ ul li {
     border-radius: 13px;
     margin: 20px;
 }
-
+.pressed{
+    opacity: 0.5;
+}
 
 
 .J {
